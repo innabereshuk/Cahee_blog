@@ -1,0 +1,173 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway:300,400,700&display=swap');
+
+@import 'normalize';
+@import 'variables';
+@import 'mixins';
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    height: 100%;
+    font-size: 10px;
+}
+
+body {
+    min-height: 100%;
+    background-color: #b07cf7;
+    font-family: 'Raleway', sans-serif;
+    font-size: 13px;
+    font-weight: 300;
+    line-height: 1.2;
+    color: $title-color;
+}
+
+a, button {
+    transition: all .4s ease-in;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.container {
+    max-width: 1200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.section {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+     &__title {
+        @include font(9rem, $title-color, 700, $text-ff, 1.2);
+        margin: 0;
+        margin: 10rem 5rem 3rem;
+        max-height: 22rem;
+        overflow: hidden;
+        }
+    &__subtitle {
+        @include font(1.7rem, $title-color, 300, $text-ff, 1.5);
+        max-width: 600px;
+        max-height: 12.8rem;
+        margin: 0 auto;
+        word-wrap: break-word;
+        overflow: hidden;
+      
+    }
+}
+
+.flex {
+    display: flex;
+    margin: 5rem 0;
+    align-items: center;
+    &__item {
+        flex: 1 1 30%;
+        margin: 15px;
+    }
+ }
+
+ .post {
+     background-color: $title-color;
+     transition: all .2s linear;
+     height: 300px;
+     box-shadow: 0 0 10px 2px rgba(41, 40, 40, 0.5);    
+    &__link {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 100%;position: relative;
+        overflow: hidden;
+        flex: 0 0 100%;
+        &:hover,
+        &:focus,
+        &:active {
+            box-shadow: 2px 2px 20px 5px rgba(65, 60, 60, 0.5);
+        }
+        &:hover::before,
+        &:focus::before,
+        &:active::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 3;
+            background-image: linear-gradient(to top, rgba(0, 0, 0, 0.8) 20%, rgba(0,0,0,.1) 80%);
+         }      
+    }
+
+    .post__link:hover .post__pic {
+        transform: scale(1.05) translate(-50%,-50%);
+        @include tr;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+   }
+
+
+    
+    &__pic {
+        @include pCenter;
+      
+    }
+    &__data {
+        display: block;
+        text-align: center;
+        width: 65px;
+        height: 65px;
+        background: rgba(0, 0, 0, .5);
+        z-index: 2;
+        text-transform: uppercase;
+        @include font(2.5rem, $title-color, 700, $text-ff, 1.2);
+        margin: 3rem;
+        border-radius: 7px;
+    }
+    &__text {
+        z-index: 2;
+        text-align: left;
+        flex: 0 0 30%;
+        margin: 20px 15px;
+        &--title {
+            @include font(2rem, $title-color, 700, $text-ff, 1.2);
+            display: block;
+        }
+        &--subtitle {
+            @include font(1.3rem, $title-color, 700, $text-ff, 1.2);
+            display: block;
+            margin-top: 25px;
+        }
+    }
+}
+
+
+.btn {
+   @include font(2rem, $title-color, 300, $text-ff, 1.2);
+    background: $btn-color;
+    width: 200px;
+    height: 55px;
+    text-transform: uppercase;
+    text-align: center;
+    padding: 15px;
+    box-shadow: 0 0 5px 1px rgba(151, 24, 24, 0.5);
+    outline: none;
+    &:hover,
+    &:focus,
+    &:active {
+        background: $title-color;
+        color: $btn-color;
+        border: $b-size solid $btn-color;
+        @include hover;
+    }
+}
+
+
+
+ 
+ 
+
+
